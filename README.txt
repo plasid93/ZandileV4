@@ -53,3 +53,9 @@ VERSION 8 NANNYBEAR BRAND & CUSTOMISATION
 
 GITHUB DEPLOYMENT
 Upload the contents of this folder to the root of your GitHub repository and commit the changes.
+
+VERSION 10 HOMEBASE DESIGN & FRESH START
+- Fort Endor Homebase-inspired dark navy, sage and blue visual system
+- Clean, reusable household workspace with no prefilled personal details
+- Homebase-style header, panels, controls and mobile bottom navigation
+
