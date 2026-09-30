@@ -14,14 +14,7 @@ body{background:var(--bg);color:var(--text);line-height:1.5;font-family:Inter,ui
 </style></head><body>
 <header><div class="header-inner"><div class="brand"><img class="brand-mark" src="app-icon.png" alt="Nannybear"><div><p class="brand-eyebrow">PRIVATE HOUSEHOLD</p><h1>Nannybear</h1><p class="brand-copy">Employment, leave and time-in-lieu</p></div></div><div class="header-status"><span id="syncStatus" class="status-inline"><i class="status-dot saving"></i>Checking connection…</span><span>•</span><span id="accountStatus">Checking your account…</span></div></div></header>
 
-<div id="authScreen" style="position:fixed;inset:0;z-index:9999;background:#050505;color:#fff;display:flex;align-items:center;justify-content:center;padding:24px">
-  <div style="width:min(420px,100%);background:#111;border:1px solid #333;border-radius:18px;padding:32px;text-align:center;box-sizing:border-box">
-    <div style="font-size:42px;margin-bottom:8px">🐻</div><h1 style="margin:0 0 10px;font-size:28px">Nannybear</h1>
-    <p style="color:#aaa;line-height:1.5;margin:0 0 24px">Private household employment tracker.</p>
-    <button id="googleSignInBtn" class="primary" style="width:100%;padding:14px;font-size:16px">Sign in with Google</button>
-    <p id="authMessage" style="color:#999;font-size:13px;margin:18px 0 0">Restoring your secure session…</p>
-  </div>
-</div>
+<div id="authScreen" style="position:fixed;inset:0;z-index:9999;color:#fff;display:flex;align-items:center;justify-content:center"><div class="auth-card"><img class="auth-bear" src="app-icon.png" alt="Nannybear"><p class="auth-kicker">YOUR HOUSEHOLD, ORGANISED</p><h1>Nannybear</h1><p>Sign in to set up and securely manage your household employment records.</p><button id="googleSignInBtn" class="primary" style="width:100%;padding:14px;font-size:16px">Sign in with Google</button><p id="authMessage" class="small" style="margin:18px 0 0">Restoring your secure session…</p></div></div>
 <div class="wrap">
 <nav class="no-print">
 <button data-page="dashboard" class="active" onclick="show('dashboard',this)">Dashboard</button><button data-page="attendance" onclick="show('attendance',this)">Attendance</button><button data-page="leave" onclick="show('leave',this)">Leave</button><button data-page="time" onclick="show('time',this)">Time in Lieu</button><button data-page="payments" onclick="show('payments',this)">Salary Payment</button><button data-page="employment" onclick="show('employment',this)">Nanny</button><button data-page="reports" onclick="show('reports',this)">Payslip</button><button data-page="settings" onclick="show('settings',this)">Settings</button>
