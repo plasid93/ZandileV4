@@ -51,6 +51,15 @@ body.nav-open #menuToggle{background:#ffffff12!important}
 body.nav-open #menuToggle svg{transform:rotate(90deg);transition:transform 180ms cubic-bezier(.2,.8,.2,1)}
 #menuToggle svg{transition:transform 180ms cubic-bezier(.2,.8,.2,1)}
 @media(max-width:760px){nav#mainNav.menu-panel{top:96px!important;height:calc(100dvh - 96px)!important;padding-top:20px!important}}
+</style><style id="nannybear-drawer-polish">
+/* Open navigation is a focused mode: only the list itself scrolls. */
+html:has(body.nav-open),body.nav-open{overflow:hidden!important;height:100%!important;overscroll-behavior:none!important}
+header{z-index:1001!important}
+#menuBackdrop{z-index:900!important}
+nav#mainNav.menu-panel{z-index:1000!important;touch-action:pan-y!important;overscroll-behavior:contain!important}
+nav#mainNav.menu-panel button{color:#fff!important;opacity:1!important;text-shadow:none!important}
+nav#mainNav.menu-panel button.active{color:#fff!important;background:#344638!important}
+@media(max-width:760px){nav#mainNav.menu-panel{width:50vw!important;max-width:50vw!important;min-width:0!important}}
 </style></head><body>
 <header><div class="header-inner"><button id="menuToggle" class="menu-toggle no-print" type="button" aria-label="Open navigation menu" aria-controls="mainNav" aria-expanded="false" onclick="toggleNav()"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span class="sr-only">Menu</span></button><div class="brand"><img class="brand-mark" src="app-icon.png" alt="Nannybear"><div><h1>Nannybear</h1><p class="brand-copy">Household employment records</p></div></div><div class="header-status" aria-live="polite"><span id="syncStatus" class="status-inline"><i class="status-dot saving"></i>Checking connection…</span><span id="accountStatus">Checking your account…</span></div></div><nav id="mainNav" class="no-print menu-panel hidden" aria-label="Main navigation"><button data-page="dashboard" class="active" onclick="show('dashboard',this)">Home</button><button data-page="attendance" onclick="show('attendance',this)">Attendance</button><button data-page="leave" onclick="show('leave',this)">Leave</button><button data-page="time" onclick="show('time',this)">Time in Lieu</button><button data-page="payments" onclick="show('payments',this)">Salary Payment</button><button data-page="employment" onclick="show('employment',this)">Nanny</button><button data-page="reports" onclick="show('reports',this)">Payslip</button><button data-page="settings" onclick="show('settings',this)">Settings</button></nav></header><button id="menuBackdrop" class="menu-backdrop hidden" type="button" aria-label="Close navigation menu" onclick="toggleNav()"></button>
 
