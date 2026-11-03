@@ -1,3 +1,9 @@
-const CACHE='nannybear-v18';const APP_FILES=['./','./index.html','./manifest.json','./sw.js','./app-icon.png'];self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(APP_FILES)).then(()=>self.skipWaiting())));self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));self.addEventListener('fetch',event=>{const request=event.request,url=new URL(request.url),isAppShell=request.mode==='navigate'||url.pathname.endsWith('/index.html')||url.pathname.endsWith('/manifest.json')||url.pathname.endsWith('/sw.js');if(isAppShell){event.respondWith(fetch(request).then(response=>{const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(request,copy));return response}).catch(()=>caches.match(request).then(cached=>cached||caches.match('./'))));return}event.respondWith(caches.match(request).then(cached=>cached||fetch(request)))});
-
-
+// Nannybear cache recovery release: retire legacy app-shell caches.
+self.addEventListener('install',event=>event.waitUntil(self.skipWaiting()));
+self.addEventListener('activate',event=>event.waitUntil(
+  caches.keys()
+    .then(keys=>Promise.all(keys.map(key=>caches.delete(key))))
+    .then(()=>self.registration.unregister())
+    .then(()=>self.clients.matchAll({type:'window'}))
+    .then(clients=>Promise.all(clients.map(client=>client.navigate(client.url))))
+));
